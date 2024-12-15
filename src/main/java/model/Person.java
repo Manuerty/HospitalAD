@@ -3,7 +3,8 @@ package model;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)  // Cambiar a SINGLE_TABLE
+@DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)  // Columna que define el tipo de persona
 public abstract class Person {
 
     @Id
